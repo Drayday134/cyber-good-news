@@ -1,0 +1,293 @@
+# Positive Cyber News Scoring Configuration
+# Keywords and patterns for identifying stories where cybersecurity makes the world better
+
+positive_categories:
+  "Security Wins":
+    keywords:
+      - arrested
+      - indicted
+      - convicted
+      - sentenced
+      - seized
+      - shut down
+      - takedown
+      - dismantled
+      - disrupted
+      - law enforcement
+      - fbi
+      - europol
+      - interpol
+      - doj
+      - department of justice
+      - guilty plea
+      - extradited
+      - sanctions
+      - busted
+      - crackdown
+    base_score: 8.0
+
+  "Threat Takedowns":
+    keywords:
+      - botnet takedown
+      - ransomware gang
+      - infrastructure seized
+      - dark web marketplace
+      - server seized
+      - domain seized
+      - malware disrupted
+      - network dismantled
+      - operation
+      - joint operation
+      - coordinated effort
+      - sinkholed
+    base_score: 8.0
+
+  "Privacy Advances":
+    keywords:
+      - privacy
+      - encryption
+      - end-to-end
+      - data protection
+      - gdpr
+      - right to repair
+      - digital rights
+      - eff
+      - electronic frontier
+      - anonymity
+      - warrant required
+      - court ruling
+      - privacy win
+      - user data protected
+      - opt out
+    base_score: 7.0
+
+  "Community & Education":
+    keywords:
+      - training
+      - education
+      - awareness
+      - scholarship
+      - diversity
+      - inclusion
+      - mentorship
+      - cyber range
+      - competition
+      - ctf
+      - capture the flag
+      - workforce
+      - talent pipeline
+      - certification
+      - free training
+      - community
+      - volunteers
+    base_score: 6.5
+
+  "Innovation & Research":
+    keywords:
+      - breakthrough
+      - discovery
+      - new method
+      - researchers found
+      - researchers developed
+      - novel approach
+      - machine learning
+      - ai security
+      - quantum
+      - post-quantum
+      - new standard
+      - nist
+      - framework
+      - best practice
+      - proof of concept
+      - defense technique
+    base_score: 7.0
+
+  "Policy & Regulation":
+    keywords:
+      - legislation
+      - regulation
+      - executive order
+      - mandate
+      - compliance
+      - standards
+      - bipartisan
+      - signed into law
+      - cybersecurity act
+      - funding
+      - billion
+      - million allocated
+      - grant
+      - investment
+      - national strategy
+      - cyber resilience
+    base_score: 6.5
+
+  "Open Source & Tools":
+    keywords:
+      - open source
+      - free tool
+      - released tool
+      - github
+      - public release
+      - community tool
+      - security tool
+      - scanner
+      - defender
+      - protection tool
+      - transparency
+      - audit
+      - bug bounty
+      - responsible disclosure
+      - coordinated disclosure
+      - patch released
+      - security update
+      - fixed
+    base_score: 6.0
+
+  "People & Lives Improved":
+    keywords:
+      - recovered
+      - returned
+      - victims
+      - restitution
+      - protected
+      - saved
+      - prevented
+      - children
+      - elderly
+      - scam prevention
+      - fraud prevention
+      - identity theft protection
+      - money recovered
+      - crypto recovered
+      - funds seized
+      - healthcare protected
+      - hospital
+      - school
+      - critical infrastructure protected
+      - water
+      - power grid
+    base_score: 8.5
+
+# Signals that a story has a positive angle even if it mentions negative events
+positive_signals:
+  keywords:
+    - arrested
+    - convicted
+    - sentenced
+    - seized
+    - takedown
+    - dismantled
+    - disrupted
+    - patched
+    - fixed
+    - update available
+    - patch available
+    - recovered
+    - returned
+    - protected
+    - defended
+    - prevented
+    - stopped
+    - blocked
+    - new tool
+    - open source
+    - released
+    - free
+    - funding
+    - investment
+    - award
+    - recognition
+    - partnership
+    - collaboration
+    - improvement
+    - success
+    - milestone
+    - record
+    - initiative
+    - program launched
+    - training
+    - education
+
+# Stories matching these WITHOUT positive signals are filtered out
+negative_indicators:
+  keywords:
+    - breach
+    - hacked
+    - attack
+    - ransomware attack
+    - data stolen
+    - compromised
+    - exploited
+    - victims
+    - million records
+    - leaked
+    - exposed
+    - vulnerability discovered
+    - zero-day
+    - actively exploited
+    - threat actor
+    - malware campaign
+    - phishing campaign
+
+# Impact score modifiers
+impact_modifiers:
+  lives_affected:
+    keywords:
+      - million users
+      - billion
+      - nationwide
+      - global
+      - worldwide
+      - international
+      - children protected
+      - patients
+      - students
+      - critical infrastructure
+    modifier: +2.0
+
+  collaboration:
+    keywords:
+      - international cooperation
+      - joint operation
+      - public-private
+      - partnership
+      - coordinated
+      - multi-agency
+      - cross-border
+    modifier: +1.5
+
+  precedent_setting:
+    keywords:
+      - first time
+      - first ever
+      - landmark
+      - historic
+      - unprecedented
+      - record
+      - largest
+      - biggest
+      - groundbreaking
+    modifier: +1.5
+
+  financial_recovery:
+    keywords:
+      - recovered
+      - seized
+      - returned to victims
+      - restitution
+      - forfeiture
+    modifier: +1.0
+
+  low_impact:
+    keywords:
+      - minor update
+      - small fix
+      - routine
+    modifier: -2.0
+
+# Tags
+common_tags:
+  - cyber-good-news
+  - security-positive
+  - infosec-wins

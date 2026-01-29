@@ -1,0 +1,22 @@
+[Unit]
+Description=Cyber Good News - Positive Cybersecurity Stories Feed
+After=network.target
+
+[Service]
+Type=simple
+User=dragon
+Group=dragon
+WorkingDirectory=/home/dragon/cyber-good-news
+Environment="PATH=/home/dragon/cyber-good-news/venv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+ExecStart=/home/dragon/cyber-good-news/venv/bin/python /home/dragon/cyber-good-news/app.py
+
+# Restart settings
+Restart=always
+RestartSec=10
+
+# Logging
+StandardOutput=append:/home/dragon/cyber-good-news/logs/service.log
+StandardError=append:/home/dragon/cyber-good-news/logs/service-error.log
+
+[Install]
+WantedBy=multi-user.target
